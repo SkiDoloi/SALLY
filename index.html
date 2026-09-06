@@ -608,254 +608,195 @@ body {
 
 <script>
 
-
-/* =====================================
-   GITHUB SETTINGS
-===================================== */
-
-/*
-Repository:
-
-https://github.com/skidoloi/SALLY
-
-*/
-
 const username = "skidoloi";
-
 const repository = "SALLY";
-
 const folder = "photos";
 
-
-/* =====================================
-   GITHUB API URL
-===================================== */
-
 const apiURL =
+    "https://api.github.com/repos/" +
+    username +
+    "/" +
+    repository +
+    "/contents/" +
+    folder +
+    "?ref=main";
 
-    "https://api.github.com/repos/"
-    +
-    username
-    +
-    "/"
-    +
-    repository
-    +
-    "/contents/"
-    +
-    folder;
-
-
-/* =====================================
-   PREVENT MULTIPLE LOADING
-===================================== */
 
 let mediaLoaded = false;
 
 
-/* =====================================
-   LOAD PHOTOS AND VIDEOS
-===================================== */
+function showMemories() {
+
+    const section = document.getElementById("gallery-section");
+
+    section.style.display = "block";
+
+    section.scrollIntoView({
+        behavior: "smooth"
+    });
+
+    loadMedia();
+
+}
+
 
 async function loadMedia() {
 
-
-    /* Do not load twice */
-
     if (mediaLoaded) {
-
         return;
-
     }
 
 
-    const gallery =
+    const gallery = document.getElementById("gallery");
 
-        document.getElementById(
-            "gallery"
-        );
+    gallery.innerHTML =
+        "<div class='loading'>Loading Sally's memories... 🐱</div>";
 
 
     try {
 
+        console.log("Loading:", apiURL);
 
-        /* Get folder contents */
 
-        const response =
+        const response = await fetch(apiURL, {
+            headers: {
+                "Accept": "application/vnd.github+json"
+            }
+        });
 
-            await fetch(apiURL);
+
+        console.log("GitHub response:", response.status);
 
 
         if (!response.ok) {
 
             throw new Error(
-
-                "Could not access photos folder"
-
+                "GitHub returned error: " +
+                response.status
             );
 
         }
 
 
-        const files =
-
-            await response.json();
+        const files = await response.json();
 
 
-        /* Remove loading message */
+        console.log("Files found:", files);
+
 
         gallery.innerHTML = "";
 
 
-        /* =================================
-           LOOP THROUGH EVERY FILE
-        ================================= */
+        /* Sort files by name */
+
+        files.sort(function(a, b) {
+
+            return a.name.localeCompare(b.name);
+
+        });
 
 
-        files.forEach(file => {
+        let mediaCount = 0;
 
 
-            /* Convert filename to lowercase */
+        files.forEach(function(file) {
+
+
+            /* Ignore folders */
+
+            if (file.type !== "file") {
+                return;
+            }
+
 
             const name =
-
                 file.name.toLowerCase();
 
 
-
-            /* =============================
-               IMAGE FILES
-            ============================= */
-
+            /* =========================
+               IMAGES
+            ========================= */
 
             if (
 
-
-                name.endsWith(".jpg")
-
-                ||
-
-                name.endsWith(".jpeg")
-
-                ||
-
-                name.endsWith(".png")
-
-                ||
-
-                name.endsWith(".webp")
-
-                ||
-
+                name.endsWith(".jpg") ||
+                name.endsWith(".jpeg") ||
+                name.endsWith(".png") ||
+                name.endsWith(".webp") ||
                 name.endsWith(".gif")
-
 
             ) {
 
 
-                /* Create image */
-
                 const image =
-
-                    document.createElement(
-                        "img"
-                    );
+                    document.createElement("img");
 
 
                 image.src =
-
                     file.download_url;
 
 
                 image.alt =
-
-                    "Sally";
+                    "Sally - " + file.name;
 
 
                 image.loading =
-
                     "lazy";
 
 
-                /* Click image to enlarge */
+                image.onclick =
+                    function() {
 
-                image.onclick = function() {
+                        openPhoto(
+                            file.download_url
+                        );
 
-
-                    openPhoto(
-
-                        file.download_url
-
-                    );
+                    };
 
 
-                };
+                gallery.appendChild(image);
 
 
-                /* Add image */
-
-                gallery.appendChild(
-
-                    image
-
-                );
-
+                mediaCount++;
 
             }
 
 
-
-            /* =============================
-               MP4 VIDEO FILES
-            ============================= */
-
+            /* =========================
+               MP4 VIDEOS
+            ========================= */
 
             else if (
 
-
                 name.endsWith(".mp4")
-
 
             ) {
 
 
-                /* Create video */
-
                 const video =
-
-                    document.createElement(
-                        "video"
-                    );
+                    document.createElement("video");
 
 
                 video.src =
-
                     file.download_url;
 
 
-                /* Add video controls */
-
-                video.controls = true;
-
-
-                /* Load only metadata initially */
-
-                video.preload = "metadata";
+                video.controls =
+                    true;
 
 
-                /* Important for mobile */
+                video.preload =
+                    "metadata";
 
-                video.playsInline = true;
+
+                video.playsInline =
+                    true;
 
 
-                /* Add video */
+                gallery.appendChild(video);
 
-                gallery.appendChild(
 
-                    video
-
-                );
-
+                mediaCount++;
 
             }
 
@@ -863,32 +804,18 @@ async function loadMedia() {
         });
 
 
+        /* No supported media */
 
-        /* =================================
-           NO MEDIA FOUND
-        ================================= */
-
-
-        if (
-
-            gallery.children.length === 0
-
-        ) {
-
+        if (mediaCount === 0) {
 
             gallery.innerHTML =
-
-                "<div class='loading'>"
-                +
-                "No photos or videos found yet."
-                +
+                "<div class='loading'>" +
+                "I found the folder, but no supported " +
+                "images or MP4 videos were found." +
                 "</div>";
-
 
         }
 
-
-        /* Mark as loaded */
 
         mediaLoaded = true;
 
@@ -899,125 +826,67 @@ async function loadMedia() {
     catch(error) {
 
 
-        console.error(
-
-            "Error loading Sally's memories:",
-
-            error
-
-        );
+        console.error(error);
 
 
         gallery.innerHTML =
 
-            "<div class='loading'>"
-            +
-            "Could not load Sally's memories."
-            +
+            "<div class='loading'>" +
+
+            "⚠️ Could not load Sally's memories.<br><br>" +
+
+            "<small>" +
+
+            error.message +
+
+            "</small>" +
+
             "</div>";
 
 
     }
 
-
 }
 
 
-
-/* =====================================
-   SHOW MEMORIES
-===================================== */
-
-function showMemories() {
-
-
-    const section =
-
-        document.getElementById(
-            "gallery-section"
-        );
-
-
-    /* Show gallery */
-
-    section.style.display =
-
-        "block";
-
-
-    /* Smooth scroll */
-
-    section.scrollIntoView({
-
-        behavior: "smooth"
-
-    });
-
-
-    /* Load photos and videos */
-
-    loadMedia();
-
-
-}
-
-
-
-/* =====================================
-   OPEN IMAGE FULL SCREEN
-===================================== */
+/* =========================
+   OPEN PHOTO
+========================= */
 
 function openPhoto(url) {
 
 
     const fullscreen =
-
-        document.getElementById(
-            "fullscreen"
-        );
+        document.getElementById("fullscreen");
 
 
     const image =
-
-        document.getElementById(
-            "fullscreen-image"
-        );
+        document.getElementById("fullscreen-image");
 
 
-    image.src =
-
-        url;
+    image.src = url;
 
 
     fullscreen.style.display =
-
         "flex";
 
 
 }
 
 
-
-/* =====================================
-   CLOSE FULL SCREEN IMAGE
-===================================== */
+/* =========================
+   CLOSE PHOTO
+========================= */
 
 function closePhoto() {
 
 
-    document
-
-        .getElementById(
-            "fullscreen"
-        )
-
-        .style.display =
-
-        "none";
+    document.getElementById(
+        "fullscreen"
+    ).style.display = "none";
 
 
 }
-
 
 </script>
 
