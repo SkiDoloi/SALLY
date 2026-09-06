@@ -1,172 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sally 🐱</title>
+
+
+<style>
+
+/* =====================================
+   GENERAL
+===================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f2f2f2;
+    color: #222;
+}
+
+
+/* =====================================
+   MAIN CONTAINER
+===================================== */
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    margin: auto;
+    padding: 15px;
+}
+
+
+.card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+}
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+.header {
+    text-align: center;
+    padding: 25px 15px 15px;
+}
+
+
+.header h1 {
+    margin: 0;
+    font-size: 34px;
+}
+
+
+.header p {
+    margin-top: 10px;
+    font-size: 17px;
+}
+
+
+/* =====================================
+   SALLY'S MAIN PHOTO
+===================================== */
+
+.main-photo {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* =====================================
+   CONTENT
+===================================== */
+
+.content {
+    padding: 25px;
+}
+
+
+/* =====================================
+   INFORMATION SECTIONS
+===================================== */
+
+.section {
+    margin-bottom: 25px;
+}
+
+
+.section h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #dddddd;
+}
+
+
+.info {
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+
+.info a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+
+/* =====================================
+   LOST MESSAGE
+===================================== */
+
+.lost {
+    border: 2px solid #222;
+    border-radius: 15px;
+    padding: 18px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* =====================================
+   SEE MORE BUTTON
+===================================== */
+
+.memory-button {
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 15px;
+
+    padding: 18px;
+
+    margin-top: 25px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    background: #222;
+
+    color: white;
+
+}
+
+
+.memory-button:hover {
+
+    opacity: 0.85;
+
+}
+
+
+/* =====================================
+   GALLERY SECTION
+===================================== */
+
+#gallery-section {
+
+    display: none;
+
+    margin-top: 30px;
+
+}
+
+
+.gallery-title {
+
+    text-align: center;
+
+    font-size: 26px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.gallery-text {
+
+    text-align: center;
+
+    margin-bottom: 20px;
+
+    font-size: 16px;
+
+}
+
+
+/* =====================================
+   MEDIA GRID
+===================================== */
+
+.gallery {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+
+}
+
+
+/* =====================================
+   IMAGE STYLE
+===================================== */
+
+.gallery img {
+
+    width: 100%;
+
+    height: 180px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    transition: transform 0.2s;
+
+}
+
+
+.gallery img:hover {
+
+    transform: scale(1.03);
+
+}
+
+
+/* =====================================
+   VIDEO STYLE
+===================================== */
+
+.gallery video {
+
+    width: 100%;
+
+    height: 180px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    background: black;
+
+}
+
+
+/* =====================================
+   LOADING MESSAGE
+===================================== */
+
+.loading {
+
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    padding: 25px;
+
+    font-size: 16px;
+
+}
+
+
+/* =====================================
+   FULL SCREEN IMAGE VIEWER
+===================================== */
+
+#fullscreen {
+
+    display: none;
+
+    position: fixed;
+
+    z-index: 1000;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background: rgba(0,0,0,0.92);
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+}
+
+
+#fullscreen img {
+
+    max-width: 95%;
+
+    max-height: 95%;
+
+    border-radius: 10px;
+
+}
+
+
+/* CLOSE BUTTON */
+
+#close {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 25px;
+
+    color: white;
+
+    font-size: 42px;
+
+    cursor: pointer;
+
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+.footer {
+
+    text-align: center;
+
+    padding: 25px;
+
+    font-size: 15px;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+<div class="card">
+
+
+<!-- =================================
+     HEADER
+================================= -->
+
+<div class="header">
+
+    <h1>🐱 Hello! I'm Sally</h1>
+
+    <p>
+        Thank you for helping me! ❤️
+    </p>
+
+</div>
+
+
+
+<!-- =================================
+     MAIN PHOTO
+
+     File:
+     sally.jpeg
+================================= -->
+
+<img
+    src="sally.jpeg"
+    alt="Sally"
+    class="main-photo"
+>
+
+
+
+<!-- =================================
+     MAIN CONTENT
+================================= -->
+
+<div class="content">
+
+
+<!-- ABOUT SALLY -->
+
+<div class="section">
+
+    <h2>🐾 About Me</h2>
+
+    <div class="info">
+
+        <strong>Name:</strong> Sally
+
+        <br>
+
+        <strong>Sex:</strong> Female
+
+    </div>
+
+</div>
+
+
+
+<!-- PERSON WHO FEEDS ME -->
+
+<div class="section">
+
+    <h2>👤 Person Who Feeds Me</h2>
+
+    <div class="info">
+
+        <strong>NAKA</strong>
+
+    </div>
+
+</div>
+
+
+
+<!-- CONTACT INFORMATION -->
+
+<div class="section">
+
+    <h2>📞 Contact Information</h2>
+
+    <div class="info">
+
+        <strong>Phone:</strong>
+
+        <a href="tel:8731998412">
+            8731998412
+        </a>
+
+        <br><br>
+
+        <strong>Email:</strong>
+
+        <br>
+
+        <a href="mailto:nakasakiwanlyngdoh@gmail.com">
+            nakasakiwanlyngdoh@gmail.com
+        </a>
+
+    </div>
+
+</div>
+
+
+
+<!-- ADDRESS -->
+
+<div class="section">
+
+    <h2>📍 Address</h2>
+
+    <div class="info">
+
+        Mynthong Pohkseh
+
+    </div>
+
+</div>
+
+
+
+<!-- LOST MESSAGE -->
+
+<div class="lost">
+
+    🚨 IF I AM LOST
+
+    <br><br>
+
+    Please contact NAKA
+
+</div>
+
+
+
+<!-- =================================
+     SEE MORE BUTTON
+================================= -->
+
+<button
+    class="memory-button"
+    onclick="showMemories()"
+>
+
+    📸 See More of Sally ❤️
+
+</button>
+
+
+
+<!-- =================================
+     SALLY'S PHOTO + VIDEO GALLERY
+================================= -->
+
+<div id="gallery-section">
+
+
+    <h2 class="gallery-title">
+
+        📸 Sally's Memories ❤️
+
+    </h2>
+
+
+    <p class="gallery-text">
+
+        Photos and videos of Sally 🐱❤️
+
+    </p>
+
+
+    <div
+        id="gallery"
+        class="gallery"
+    >
+
+        <div class="loading">
+
+            Loading Sally's memories...
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- =================================
+     FOOTER
+================================= -->
+
+<div class="footer">
+
+    🐾 Thank you for helping Sally get home safely! 🐾
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =================================
+     FULL SCREEN IMAGE VIEWER
+================================= -->
+
+<div
+    id="fullscreen"
+    onclick="closePhoto()"
+>
+
+    <span id="close">
+
+        &times;
+
+    </span>
+
+
+    <img
+        id="fullscreen-image"
+        src=""
+        alt="Sally"
+    >
+
+</div>
+
+
+
 <script>
 
-/* GitHub repository settings */
+
+/* =====================================
+   GITHUB SETTINGS
+===================================== */
+
+/*
+Repository:
+
+https://github.com/skidoloi/SALLY
+
+*/
 
 const username = "skidoloi";
+
 const repository = "SALLY";
+
 const folder = "photos";
 
+
+/* =====================================
+   GITHUB API URL
+===================================== */
+
 const apiURL =
-    "https://api.github.com/repos/" +
-    username +
-    "/" +
-    repository +
-    "/contents/" +
+
+    "https://api.github.com/repos/"
+    +
+    username
+    +
+    "/"
+    +
+    repository
+    +
+    "/contents/"
+    +
     folder;
+
+
+/* =====================================
+   PREVENT MULTIPLE LOADING
+===================================== */
 
 let mediaLoaded = false;
 
 
+/* =====================================
+   LOAD PHOTOS AND VIDEOS
+===================================== */
+
 async function loadMedia() {
 
-    if (mediaLoaded) return;
 
-    const gallery = document.getElementById("gallery");
+    /* Do not load twice */
+
+    if (mediaLoaded) {
+
+        return;
+
+    }
+
+
+    const gallery =
+
+        document.getElementById(
+            "gallery"
+        );
+
 
     try {
 
-        const response = await fetch(apiURL);
+
+        /* Get folder contents */
+
+        const response =
+
+            await fetch(apiURL);
+
 
         if (!response.ok) {
-            throw new Error("Could not access photos folder");
+
+            throw new Error(
+
+                "Could not access photos folder"
+
+            );
+
         }
 
-        const files = await response.json();
+
+        const files =
+
+            await response.json();
+
+
+        /* Remove loading message */
 
         gallery.innerHTML = "";
 
 
+        /* =================================
+           LOOP THROUGH EVERY FILE
+        ================================= */
+
+
         files.forEach(file => {
 
-            const name = file.name.toLowerCase();
+
+            /* Convert filename to lowercase */
+
+            const name =
+
+                file.name.toLowerCase();
 
 
-            /* =====================
+
+            /* =============================
                IMAGE FILES
-            ===================== */
+            ============================= */
+
 
             if (
-                name.endsWith(".jpg") ||
-                name.endsWith(".jpeg") ||
-                name.endsWith(".png") ||
-                name.endsWith(".webp") ||
+
+
+                name.endsWith(".jpg")
+
+                ||
+
+                name.endsWith(".jpeg")
+
+                ||
+
+                name.endsWith(".png")
+
+                ||
+
+                name.endsWith(".webp")
+
+                ||
+
                 name.endsWith(".gif")
+
+
             ) {
 
-                const image = document.createElement("img");
 
-                image.src = file.download_url;
-                image.alt = "Sally";
-                image.loading = "lazy";
+                /* Create image */
 
-                image.onclick = function () {
-                    openPhoto(file.download_url);
+                const image =
+
+                    document.createElement(
+                        "img"
+                    );
+
+
+                image.src =
+
+                    file.download_url;
+
+
+                image.alt =
+
+                    "Sally";
+
+
+                image.loading =
+
+                    "lazy";
+
+
+                /* Click image to enlarge */
+
+                image.onclick = function() {
+
+
+                    openPhoto(
+
+                        file.download_url
+
+                    );
+
+
                 };
 
-                gallery.appendChild(image);
+
+                /* Add image */
+
+                gallery.appendChild(
+
+                    image
+
+                );
+
+
             }
 
 
-            /* =====================
-               MP4 VIDEOS
-            ===================== */
+
+            /* =============================
+               MP4 VIDEO FILES
+            ============================= */
+
 
             else if (
+
+
                 name.endsWith(".mp4")
+
+
             ) {
 
-                const video =
-                    document.createElement("video");
 
-                video.src = file.download_url;
+                /* Create video */
+
+                const video =
+
+                    document.createElement(
+                        "video"
+                    );
+
+
+                video.src =
+
+                    file.download_url;
+
+
+                /* Add video controls */
 
                 video.controls = true;
 
+
+                /* Load only metadata initially */
+
                 video.preload = "metadata";
 
-                video.style.width = "100%";
 
-                video.style.borderRadius = "12px";
+                /* Important for mobile */
 
-                gallery.appendChild(video);
+                video.playsInline = true;
+
+
+                /* Add video */
+
+                gallery.appendChild(
+
+                    video
+
+                );
+
+
             }
+
 
         });
 
 
-        if (gallery.children.length === 0) {
+
+        /* =================================
+           NO MEDIA FOUND
+        ================================= */
+
+
+        if (
+
+            gallery.children.length === 0
+
+        ) {
+
 
             gallery.innerHTML =
-                "<div class='loading'>" +
-                "No photos or videos found yet." +
+
+                "<div class='loading'>"
+                +
+                "No photos or videos found yet."
+                +
                 "</div>";
+
 
         }
 
 
+        /* Mark as loaded */
+
         mediaLoaded = true;
 
+
     }
 
-    catch (error) {
+
+    catch(error) {
+
 
         console.error(
+
             "Error loading Sally's memories:",
+
             error
+
         );
 
+
         gallery.innerHTML =
-            "<div class='loading'>" +
-            "Could not load Sally's photos and videos." +
+
+            "<div class='loading'>"
+            +
+            "Could not load Sally's memories."
+            +
             "</div>";
 
+
     }
+
 
 }
 
 
-/* Show Sally's memories */
+
+/* =====================================
+   SHOW MEMORIES
+===================================== */
 
 function showMemories() {
 
-    const section =
-        document.getElementById("gallery-section");
 
-    section.style.display = "block";
+    const section =
+
+        document.getElementById(
+            "gallery-section"
+        );
+
+
+    /* Show gallery */
+
+    section.style.display =
+
+        "block";
+
+
+    /* Smooth scroll */
 
     section.scrollIntoView({
+
         behavior: "smooth"
+
     });
+
+
+    /* Load photos and videos */
 
     loadMedia();
 
+
 }
 
 
-/* Open image fullscreen */
+
+/* =====================================
+   OPEN IMAGE FULL SCREEN
+===================================== */
 
 function openPhoto(url) {
 
+
     const fullscreen =
-        document.getElementById("fullscreen");
+
+        document.getElementById(
+            "fullscreen"
+        );
+
 
     const image =
-        document.getElementById("fullscreen-image");
 
-    image.src = url;
+        document.getElementById(
+            "fullscreen-image"
+        );
 
-    fullscreen.style.display = "flex";
+
+    image.src =
+
+        url;
+
+
+    fullscreen.style.display =
+
+        "flex";
+
 
 }
 
 
-/* Close fullscreen */
+
+/* =====================================
+   CLOSE FULL SCREEN IMAGE
+===================================== */
 
 function closePhoto() {
 
-    document.getElementById("fullscreen")
-        .style.display = "none";
+
+    document
+
+        .getElementById(
+            "fullscreen"
+        )
+
+        .style.display =
+
+        "none";
+
 
 }
 
+
 </script>
+
+
+</body>
+
+</html>
