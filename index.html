@@ -5,183 +5,135 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Sally 🐱</title>
 
 
 <style>
 
+/* ================================
+   GENERAL
+================================ */
+
 * {
     box-sizing: border-box;
 }
 
-
 body {
-
     margin: 0;
-
-    font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
+    font-family: Arial, Helvetica, sans-serif;
     background: #f2f2f2;
-
     color: #222;
-
 }
 
+
+/* ================================
+   MAIN CONTAINER
+================================ */
 
 .container {
-
     width: 100%;
-
-    max-width: 600px;
-
+    max-width: 650px;
     margin: auto;
-
     padding: 15px;
-
 }
 
-
-/* MAIN CARD */
 
 .card {
-
     background: white;
-
     border-radius: 20px;
-
     overflow: hidden;
-
-    box-shadow:
-    0 5px 25px
-    rgba(0,0,0,0.15);
-
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
 }
 
 
-/* HEADER */
+/* ================================
+   HEADER
+================================ */
 
 .header {
-
     text-align: center;
-
-    padding:
-    25px
-    15px
-    15px;
-
+    padding: 25px 15px 15px;
 }
-
 
 .header h1 {
-
     margin: 0;
-
     font-size: 34px;
-
 }
-
 
 .header p {
-
-    margin-top: 8px;
-
+    margin-top: 10px;
     font-size: 17px;
-
 }
 
 
-/* MAIN PHOTO */
+/* ================================
+   SALLY MAIN PHOTO
+================================ */
 
 .main-photo {
-
     width: 100%;
-
     height: 380px;
-
     object-fit: cover;
-
     display: block;
-
 }
 
 
-/* CONTENT */
+/* ================================
+   CONTENT
+================================ */
 
 .content {
-
     padding: 25px;
-
 }
 
 
-/* SECTIONS */
+/* ================================
+   INFORMATION SECTIONS
+================================ */
 
 .section {
-
     margin-bottom: 25px;
-
 }
 
-
 .section h2 {
-
     font-size: 20px;
-
-    margin-bottom: 10px;
-
+    margin-bottom: 12px;
     padding-bottom: 8px;
-
-    border-bottom:
-    1px solid #dddddd;
-
+    border-bottom: 1px solid #dddddd;
 }
 
 
 .info {
-
     font-size: 17px;
-
     line-height: 1.9;
-
 }
 
 
 .info a {
-
     color: #0066cc;
-
     text-decoration: none;
-
 }
 
 
-/* LOST MESSAGE */
+/* ================================
+   LOST MESSAGE
+================================ */
 
 .lost {
-
-    border:
-    2px solid #222;
-
+    border: 2px solid #222;
     border-radius: 15px;
-
     padding: 18px;
-
     text-align: center;
-
     font-size: 18px;
-
     font-weight: bold;
-
 }
 
 
-/* MEMORY BUTTON */
+/* ================================
+   SEE MORE BUTTON
+================================ */
 
 .memory-button {
 
@@ -209,19 +161,19 @@ body {
 
 
 .memory-button:hover {
-
     opacity: 0.85;
-
 }
 
 
-/* GALLERY */
+/* ================================
+   GALLERY SECTION
+================================ */
 
 #gallery-section {
 
     display: none;
 
-    margin-top: 25px;
+    margin-top: 30px;
 
 }
 
@@ -230,7 +182,7 @@ body {
 
     text-align: center;
 
-    font-size: 25px;
+    font-size: 26px;
 
     margin-bottom: 10px;
 
@@ -243,17 +195,20 @@ body {
 
     margin-bottom: 20px;
 
+    font-size: 16px;
+
 }
 
 
-/* PHOTO GRID */
+/* ================================
+   PHOTO GRID
+================================ */
 
 .gallery {
 
     display: grid;
 
-    grid-template-columns:
-    repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
     gap: 12px;
 
@@ -272,21 +227,36 @@ body {
 
     cursor: pointer;
 
-    transition:
-    transform 0.2s;
+    transition: transform 0.2s;
 
 }
 
 
 .gallery img:hover {
 
-    transform:
-    scale(1.03);
+    transform: scale(1.03);
 
 }
 
 
-/* FULL SCREEN PHOTO */
+/* ================================
+   LOADING MESSAGE
+================================ */
+
+.loading {
+
+    text-align: center;
+
+    padding: 20px;
+
+    font-size: 16px;
+
+}
+
+
+/* ================================
+   FULL SCREEN IMAGE
+================================ */
 
 #fullscreen {
 
@@ -304,8 +274,7 @@ body {
 
     height: 100%;
 
-    background:
-    rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.92);
 
     justify-content: center;
 
@@ -331,20 +300,22 @@ body {
 
     position: absolute;
 
-    top: 20px;
+    top: 15px;
 
-    right: 30px;
+    right: 25px;
 
     color: white;
 
-    font-size: 40px;
+    font-size: 42px;
 
     cursor: pointer;
 
 }
 
 
-/* FOOTER */
+/* ================================
+   FOOTER
+================================ */
 
 .footer {
 
@@ -372,35 +343,40 @@ body {
 <div class="card">
 
 
-<!-- HEADER -->
+<!-- ================================
+     HEADER
+================================ -->
 
 <div class="header">
 
-<h1>🐱 Hello! I'm Sally</h1>
+    <h1>🐱 Hello! I'm Sally</h1>
 
-<p>
-Thank you for helping me! ❤️
-</p>
+    <p>
+        Thank you for helping me! ❤️
+    </p>
 
 </div>
 
 
 
-<!-- MAIN PHOTO -->
+<!-- ================================
+     MAIN PHOTO
+     
+     This uses:
+     SALLY/sally.jpeg
+================================ -->
 
 <img
-
-id="main-photo"
-
-class="main-photo"
-
-src=""
-
-alt="Sally the cat"
-
+    src="sally.jpeg"
+    alt="Sally"
+    class="main-photo"
 >
 
 
+
+<!-- ================================
+     MAIN CONTENT
+================================ -->
 
 <div class="content">
 
@@ -410,88 +386,64 @@ alt="Sally the cat"
 
 <div class="section">
 
-<h2>🐾 About Me</h2>
+    <h2>🐾 About Me</h2>
 
+    <div class="info">
 
-<div class="info">
+        <strong>Name:</strong> Sally
 
-<strong>Name:</strong>
+        <br>
 
-Sally
+        <strong>Sex:</strong> Female
 
-
-<br>
-
-
-<strong>Sex:</strong>
-
-Female
-
-
-</div>
+    </div>
 
 </div>
 
 
 
-<!-- OWNER -->
+<!-- PERSON WHO FEEDS SALLY -->
 
 <div class="section">
 
-<h2>👤 Person Who Feeds Me</h2>
+    <h2>👤 Person Who Feeds Me</h2>
 
+    <div class="info">
 
-<div class="info">
+        <strong>NAKA</strong>
 
-<strong>NAKA</strong>
-
-</div>
-
+    </div>
 
 </div>
 
 
 
-<!-- CONTACT -->
+<!-- CONTACT INFORMATION -->
 
 <div class="section">
 
+    <h2>📞 Contact Information</h2>
 
-<h2>📞 Contact Information</h2>
+    <div class="info">
 
+        <strong>Phone:</strong>
 
-<div class="info">
+        <a href="tel:8731998412">
+            8731998412
+        </a>
 
-
-<strong>Phone:</strong>
-
-
-<a href="tel:8731998412">
-
-8731998412
-
-</a>
+        <br>
 
 
-<br>
+        <strong>Email:</strong>
 
+        <br>
 
-<strong>Email:</strong>
+        <a href="mailto:nakasakiwanlyngdoh@gmail.com">
+            nakasakiwanlyngdoh@gmail.com
+        </a>
 
-
-<br>
-
-
-<a href=
-"mailto:nakasakiwanlyngdoh@gmail.com">
-
-nakasakiwanlyngdoh@gmail.com
-
-</a>
-
-
-</div>
-
+    </div>
 
 </div>
 
@@ -501,16 +453,13 @@ nakasakiwanlyngdoh@gmail.com
 
 <div class="section">
 
+    <h2>📍 Address</h2>
 
-<h2>📍 Address</h2>
+    <div class="info">
 
+        Mynthong Pohkseh
 
-<div class="info">
-
-Mynthong Pohkseh
-
-</div>
-
+    </div>
 
 </div>
 
@@ -520,82 +469,78 @@ Mynthong Pohkseh
 
 <div class="lost">
 
+    🚨 IF I AM LOST
 
-🚨 IF I AM LOST
+    <br><br>
 
-
-<br><br>
-
-
-Please contact NAKA
-
+    Please contact NAKA
 
 </div>
 
 
 
-<!-- MEMORY BUTTON -->
+<!-- ================================
+     SEE MORE BUTTON
+================================ -->
 
 <button
-
-class="memory-button"
-
-onclick="showMemories()"
-
+    class="memory-button"
+    onclick="showMemories()"
 >
 
-
-📸 See More of Sally ❤️
-
+    📸 See More of Sally ❤️
 
 </button>
 
 
 
-<!-- GALLERY -->
+<!-- ================================
+     PHOTO GALLERY
+================================ -->
 
 <div id="gallery-section">
 
 
-<h2 class="gallery-title">
+    <h2 class="gallery-title">
 
-📸 Sally's Memories ❤️
+        📸 Sally's Memories ❤️
 
-</h2>
-
-
-<p class="gallery-text">
-
-Some beautiful moments and memories of Sally 🐱❤️
-
-</p>
+    </h2>
 
 
-<div
+    <p class="gallery-text">
 
-class="gallery"
+        Some beautiful moments and memories of Sally 🐱❤️
 
-id="gallery"
-
->
+    </p>
 
 
-</div>
+    <div
+        id="gallery"
+        class="gallery"
+    >
 
+        <div class="loading">
 
-</div>
+            Loading Sally's photos...
 
+        </div>
+
+    </div>
 
 
 </div>
 
 
+</div>
+
+
+
+<!-- FOOTER -->
 
 <div class="footer">
 
-
-🐾 Thank you for helping Sally get home safely! 🐾
-
+    🐾 Thank you for helping Sally get home safely! 🐾
 
 </div>
 
@@ -607,31 +552,28 @@ id="gallery"
 
 
 
-<!-- FULLSCREEN PHOTO -->
+<!-- ================================
+     FULL SCREEN PHOTO VIEWER
+================================ -->
 
 <div
-
-id="fullscreen"
-
-onclick="closePhoto()"
-
+    id="fullscreen"
+    onclick="closePhoto()"
 >
 
 
-<span id="close">
+    <span id="close">
 
-&times;
+        &times;
 
-</span>
+    </span>
 
 
-<img
-
-id="fullscreen-image"
-
-src=""
-
->
+    <img
+        id="fullscreen-image"
+        src=""
+        alt="Sally"
+    >
 
 
 </div>
@@ -641,291 +583,322 @@ src=""
 <script>
 
 
-/* ----------------------------------
+/* =================================
+   GITHUB SETTINGS
+================================= */
 
-GITHUB SETTINGS
+/*
+Your GitHub repository:
 
----------------------------------- */
+https://github.com/skidoloi/SALLY
 
+*/
 
 const username = "skidoloi";
 
-
 const repository = "SALLY";
-
 
 const folder = "photos";
 
 
-/* ----------------------------------
-
-GET PHOTOS FROM GITHUB
-
----------------------------------- */
-
+/* =================================
+   GITHUB API URL
+================================= */
 
 const apiURL =
 
-"https://api.github.com/repos/"
-
-+
-
-username
-
-+
-
-"/"
-
-+
-
-repository
-
-+
-
-"/contents/"
-
-+
-
-folder;
+    "https://api.github.com/repos/"
+    +
+    username
+    +
+    "/"
+    +
+    repository
+    +
+    "/contents/"
+    +
+    folder;
 
 
 
-let photos = [];
+/* =================================
+   PREVENT LOADING PHOTOS MULTIPLE TIMES
+================================= */
+
+let photosLoaded = false;
 
 
 
-fetch(apiURL)
+/* =================================
+   LOAD ALL PHOTOS
+================================= */
+
+async function loadPhotos() {
 
 
-.then(response => response.json())
+    /* If already loaded, do nothing */
+
+    if (photosLoaded) {
+
+        return;
+
+    }
 
 
-.then(files => {
+    const gallery =
+        document.getElementById("gallery");
 
 
-files.forEach(file => {
+    try {
 
 
-const filename =
-
-file.name.toLowerCase();
-
+        const response =
+            await fetch(apiURL);
 
 
-/* CHECK IF FILE IS AN IMAGE */
+        if (!response.ok) {
+
+            throw new Error(
+                "Could not access photos folder"
+            );
+
+        }
 
 
-if (
-
-filename.endsWith(".jpg")
-
-||
-
-filename.endsWith(".jpeg")
-
-||
-
-filename.endsWith(".png")
-
-||
-
-filename.endsWith(".webp")
-
-) {
+        const files =
+            await response.json();
 
 
-photos.push(file.download_url);
+        /* Clear loading message */
+
+        gallery.innerHTML = "";
+
+
+        /* =================================
+           FILTER IMAGE FILES
+        ================================= */
+
+
+        const images =
+            files.filter(file => {
+
+
+                const name =
+                    file.name.toLowerCase();
+
+
+                return (
+
+                    name.endsWith(".jpg")
+
+                    ||
+
+                    name.endsWith(".jpeg")
+
+                    ||
+
+                    name.endsWith(".png")
+
+                    ||
+
+                    name.endsWith(".webp")
+
+                    ||
+
+                    name.endsWith(".gif")
+
+                );
+
+
+            });
+
+
+
+        /* =================================
+           DISPLAY EVERY IMAGE
+        ================================= */
+
+
+        images.forEach(file => {
+
+
+            const image =
+                document.createElement("img");
+
+
+            image.src =
+                file.download_url;
+
+
+            image.alt =
+                "Sally";
+
+
+            /* Lazy loading */
+
+            image.loading =
+                "lazy";
+
+
+            /* Click image to enlarge */
+
+            image.onclick =
+                function() {
+
+
+                    openPhoto(
+                        file.download_url
+                    );
+
+
+                };
+
+
+            /* Add image to gallery */
+
+            gallery.appendChild(
+                image
+            );
+
+
+        });
+
+
+
+        /* =================================
+           IF NO PHOTOS FOUND
+        ================================= */
+
+
+        if (
+            images.length === 0
+        ) {
+
+
+            gallery.innerHTML =
+
+                "<div class='loading'>"
+                +
+                "No photos found yet."
+                +
+                "</div>";
+
+
+        }
+
+
+        photosLoaded = true;
+
+
+    }
+
+
+    catch(error) {
+
+
+        console.error(
+            "Error loading Sally's photos:",
+            error
+        );
+
+
+        gallery.innerHTML =
+
+            "<div class='loading'>"
+            +
+            "Could not load Sally's photos."
+            +
+            "</div>";
+
+
+    }
 
 
 }
 
 
-});
 
-
-/* ----------------------------------
-
-SET MAIN PHOTO
-
-FIRST PHOTO IN FOLDER
-
----------------------------------- */
-
-
-if (photos.length > 0) {
-
-
-document
-
-.getElementById("main-photo")
-
-.src
-
-=
-
-photos[0];
-
-
-}
-
-
-
-/* ----------------------------------
-
-CREATE PHOTO GALLERY
-
----------------------------------- */
-
-
-const gallery =
-
-document.getElementById("gallery");
-
-
-
-photos.forEach(photo => {
-
-
-const image =
-
-document.createElement("img");
-
-
-image.src = photo;
-
-
-image.alt = "Sally";
-
-
-image.onclick = function() {
-
-
-openPhoto(photo);
-
-
-};
-
-
-
-gallery.appendChild(image);
-
-
-});
-
-
-})
-
-
-.catch(error => {
-
-
-console.log(
-
-"Could not load Sally's photos:",
-
-error
-
-);
-
-
-});
-
-
-
-/* ----------------------------------
-
-SHOW MEMORIES
-
----------------------------------- */
-
+/* =================================
+   SHOW MEMORIES
+================================= */
 
 function showMemories() {
 
 
-const section =
-
-document.getElementById(
-
-"gallery-section"
-
-);
+    const section =
+        document.getElementById(
+            "gallery-section"
+        );
 
 
-section.style.display =
+    /* Show gallery */
 
-"block";
-
-
-section.scrollIntoView({
-
-behavior: "smooth"
-
-});
+    section.style.display =
+        "block";
 
 
-}
+    /* Smoothly scroll to gallery */
+
+    section.scrollIntoView({
+
+        behavior: "smooth"
+
+    });
 
 
+    /* Load all photos */
 
-/* ----------------------------------
-
-OPEN LARGE PHOTO
-
----------------------------------- */
-
-
-function openPhoto(photo) {
-
-
-const fullscreen =
-
-document.getElementById(
-
-"fullscreen"
-
-);
-
-
-const image =
-
-document.getElementById(
-
-"fullscreen-image"
-
-);
-
-
-image.src = photo;
-
-
-fullscreen.style.display =
-
-"flex";
+    loadPhotos();
 
 
 }
 
 
 
-/* ----------------------------------
+/* =================================
+   OPEN LARGE PHOTO
+================================= */
 
-CLOSE LARGE PHOTO
+function openPhoto(url) {
 
----------------------------------- */
 
+    const fullscreen =
+        document.getElementById(
+            "fullscreen"
+        );
+
+
+    const image =
+        document.getElementById(
+            "fullscreen-image"
+        );
+
+
+    image.src =
+        url;
+
+
+    fullscreen.style.display =
+        "flex";
+
+
+}
+
+
+
+/* =================================
+   CLOSE LARGE PHOTO
+================================= */
 
 function closePhoto() {
 
 
-document
-
-.getElementById("fullscreen")
-
-.style.display
-
-=
-
-"none";
+    document
+        .getElementById(
+            "fullscreen"
+        )
+        .style.display =
+        "none";
 
 
 }
@@ -935,6 +908,5 @@ document
 
 
 </body>
-
 
 </html>
